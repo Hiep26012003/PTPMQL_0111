@@ -5,13 +5,14 @@ namespace demoMVC.Controllers
 {
     public class EmployeeController : Controller
     {
-        public IActionResult index()
+        public IActionResult Index()
         {
             return View();
         }
         [HttpPost]
-        public IActionResult Index(Employee ps){
-            string strOutput = "Xin chào ! " + ps.PersonId + "- " + ps.fullname ;
+        public IActionResult Index(Employee ps)
+        {
+            string strOutput = " Xin chào " + ps.PersonId + "-" + ps.FullName + "-" +  ps.Address + "-" + ps.EmployeeId + "-" + ps.Age;
             ViewBag.infoEmployee = strOutput;
             return View();
         }

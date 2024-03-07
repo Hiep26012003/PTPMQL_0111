@@ -178,7 +178,7 @@ namespace demoMVC.Controllers{
                 //Add some text to cell A1
                 worksheet.Cells["A1"].Value = "PersonID";
                 worksheet.Cells["B1"].Value = "FullName";
-                worksheet.Cells["C1"].Value = "Address";
+                worksheet.Cells["C1"].Value = "Addresss";
                 //get all Person
                 var personsList = _context.Persons.ToList();
                 //fill data to worksheet

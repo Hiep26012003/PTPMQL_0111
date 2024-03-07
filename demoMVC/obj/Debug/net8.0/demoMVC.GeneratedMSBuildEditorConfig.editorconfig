@@ -26,12 +26,16 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\BTHPTPMQL\demoMVC
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/BTHPTPMQL/demoMVC/Views/Employee/index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVcaW5kZXguY3NodG1s
+[D:/BTHPTPMQL/demoMVC/Views/Employee/Index.Cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW1wbG95ZWVcSW5kZXguQ3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/BTHPTPMQL/demoMVC/Views/HelloWorld/index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGVsbG9Xb3JsZFxpbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/BTHPTPMQL/demoMVC/Views/HeThongPhanPhoi/Index.Cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSGVUaG9uZ1BoYW5QaG9pXEluZGV4LkNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/BTHPTPMQL/demoMVC/Views/Home/Index.cshtml]

@@ -14,18 +14,46 @@ namespace demoMVC.Migrations
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "8.0.1");
+            modelBuilder.HasAnnotation("ProductVersion", "8.0.3");
+
+            modelBuilder.Entity("demoMVC.Models.Employee", b =>
+                {
+                    b.Property<string>("PersonId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("Age")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("EmployeeId")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("FullName")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("PersonId");
+
+                    b.ToTable("Employee");
+                });
 
             modelBuilder.Entity("demoMVC.Models.Person", b =>
                 {
                     b.Property<string>("PersonId")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Addresss")
+                    b.Property<string>("address")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("fullname")
+                        .IsRequired()
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("old")
                         .IsRequired()
                         .HasColumnType("TEXT");
 

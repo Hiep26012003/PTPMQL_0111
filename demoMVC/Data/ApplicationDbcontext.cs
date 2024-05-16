@@ -7,5 +7,6 @@ namespace demoMVC.Data
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options){}
         public DbSet<Person> Persons {get; set;}
+        public DbSet<Employee> Employee {get; set;}
     }
 }

@@ -40,13 +40,13 @@ namespace demoMVC.Controllers{
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("PersonID, FullName, Address")] Person person){
+        public async Task<IActionResult> Create([Bind("PersonID, FullName, Address")] Person Person){
             if(ModelState.IsValid){
-                _context.Add(person);
+                _context.Add(Person);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(person);
+            return View(Person);
         }
 
         public async Task<IActionResult> Edit(string id){
@@ -62,18 +62,18 @@ namespace demoMVC.Controllers{
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("PersonID, FullName, Address")] Person person){
-            if(id != person.PersonId){
+        public async Task<IActionResult> Edit(string id, [Bind("PersonID, FullName, Address")] Person Person){
+            if(id != Person.PersonId){
                 return NotFound();
             }
 
             if(ModelState.IsValid){
                 try{
-                    _context.Update(person);
+                    _context.Update(Person);
                     await _context.SaveChangesAsync();
                 }
                 catch(DbUpdateConcurrencyException){
-                    if(!PersonExists(person.PersonId)){
+                    if(!PersonExists(Person.PersonId)){
                         return NotFound();
                     }
                     else{
@@ -82,18 +82,18 @@ namespace demoMVC.Controllers{
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(person);
+            return View(Person);
         }
         public async Task<IActionResult> Delete(string id){
             if(id == null || _context.Persons == null){
                 return NotFound();
             }
-            var person = await _context.Persons
+            var Person = await _context.Persons
                 .FirstOrDefaultAsync(m => m.PersonId == id);
-            if(person == null){
+            if(Person == null){
                 return NotFound();
             }
-            return View(person);
+            return View(Person);
         }
 
         [HttpPost, ActionName("Delete")]
@@ -149,7 +149,7 @@ namespace demoMVC.Controllers{
                                 {
                                     PersonId = row[0].ToString(),
                                     fullname = row[1].ToString(),
-                                    Addresss = row[2].ToString()
+                                    address = row[2].ToString()
                                 };
                                 _context.Add(person);
                             }
@@ -171,7 +171,7 @@ namespace demoMVC.Controllers{
 
         public IActionResult Download(){
             //Name the file when downloading
-            var fileName = "Mai Van Hiep" + ".xlsx";
+            var fileName = "MVH" + ".xlsx";
             using(ExcelPackage excelPackage = new ExcelPackage()){
                 //Create the WorkSheet
                 ExcelWorksheet worksheet = excelPackage.Workbook.Worksheets.Add("Sheet 1");

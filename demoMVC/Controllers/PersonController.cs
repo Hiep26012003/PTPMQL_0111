@@ -9,7 +9,8 @@ using OfficeOpenXml;
 using System.Data;
 using X.PagedList;
 
-namespace demoMVC.Controllers{
+namespace demoMVC.Controllers
+{
     public class PersonController : Controller{
         private readonly ApplicationDbContext _context;
         private ExcelProcess _excelProcess = new ExcelProcess();
@@ -19,7 +20,8 @@ namespace demoMVC.Controllers{
         }
 
         public async Task<IActionResult> Index(int? page, int? PageSize){
-            ViewBag.PageSize = new List<SelectListItem>(){
+            ViewBag.PageSize = new List<SelectListItem>()
+            {
                 new SelectListItem() {Value = "3", Text = "3"},
                 new SelectListItem() {Value = "5", Text = "5"},
                 new SelectListItem() {Value = "10", Text = "10"},
@@ -30,7 +32,7 @@ namespace demoMVC.Controllers{
             int pagesize = (PageSize ?? 3);
             ViewBag.psize = pagesize;
             var model = _context.Persons.ToList().ToPagedList(page ?? 1, pagesize);
-            // var model = _context.Persons.ToList().ToPagedList(page ?? 1, 5);
+            //var model = _context.Persons.ToList().ToPagedList(page ?? 1, 5);
             return View(model);
         }
 
@@ -134,8 +136,9 @@ namespace demoMVC.Controllers{
                     }
                     else
                     {
+                        
                         var fileName = DateTime.Now.ToString("yyyyMMddHHmmss") + fileExtension;
-                        var filePath = Path.Combine(Directory.GetCurrentDirectory(), "Uploads", "Excels", fileName);
+                        var filePath = Path.Combine(Directory.GetCurrentDirectory(), "/Uploads/Excels", fileName);
 
                         using (var stream = new FileStream(filePath, FileMode.Create))
                         {
